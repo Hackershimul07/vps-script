@@ -81,10 +81,17 @@ END
 echo -e "${OK} Updating Menu panel"
 wget -q -O /root/menu.zip "${REPO}files/menu.zip"
 if [[ -f /root/menu.zip ]]; then
-    unzip -o -q /root/menu.zip -d /root/menu
-    chmod +x /root/menu/*
-    mv -f /root/menu/* /usr/local/sbin/
-    rm -rf /root/menu /root/menu.zip
+    rm -rf /root/menu_extract
+    mkdir -p /root/menu_extract
+    unzip -o -q /root/menu.zip -d /root/menu_extract
+    # Handle both flat zips and zips with a nested top-level folder
+    src_dir="/root/menu_extract"
+    if [[ $(find /root/menu_extract -mindepth 1 -maxdepth 1 -type d | wc -l) -eq 1 && $(find /root/menu_extract -mindepth 1 -maxdepth 1 -type f | wc -l) -eq 0 ]]; then
+        src_dir=$(find /root/menu_extract -mindepth 1 -maxdepth 1 -type d)
+    fi
+    find "$src_dir" -mindepth 1 -maxdepth 1 -type f -exec chmod +x {} \;
+    find "$src_dir" -mindepth 1 -maxdepth 1 -type f -exec mv -f {} /usr/local/sbin/ \;
+    rm -rf /root/menu_extract /root/menu.zip
 fi
 
 echo -e "${OK} Reloading and restarting services"
