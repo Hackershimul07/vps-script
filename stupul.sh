@@ -149,7 +149,7 @@ clear
     REPOCOK="https://raw.githubusercontent.com/btr9924/babi/main/"
     REPOCOK1="https://raw.githubusercontent.com/btr9924/etil/main/"
     REPOT="https://raw.githubusercontent.com/Hackershimul07/open/main/"
-    REPOSE="https://raw.githubusercontent.com/Jatimpark/apem/main/"
+    REPOSE="https://raw.githubusercontent.com/Hackershimul07/apem/main/"
     REPOSES="https://raw.githubusercontent.com/Jatimpark/Permission/main/"
 
 ####
