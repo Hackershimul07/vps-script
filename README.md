@@ -91,7 +91,12 @@ apt install -y && apt update -y && apt upgrade -y && wget -q https://raw.githubu
 ### All OS Haproxy Script
 
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/Arya-Blitar22/st-pusat/main/stupul.sh && chmod +x stupul.sh && ./stupul.sh
+
+apt-get update && apt-get upgrade -y && apt dist-upgrade -y && update-grub && reboot
+
+
+wget --no-check-certificate https://raw.githubusercontent.com/Hackershimul07/vps-script/main/stupul.sh && chmod +x stupul.sh && ./stupul.sh
+
 ```
 
 ## For all OS, check the latest video
